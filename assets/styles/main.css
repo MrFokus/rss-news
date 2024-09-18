@@ -1,5 +1,23 @@
+@tailwind base;
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html,body,#__nuxt{
+    min-width: 100dvw;
+    min-height: 100dvh;
+}
+@layer base{
+    body{
+        @apply bg-indigo-50
+    }
+    div:not(.vc-container,.vc-container *),header,main,footer,section{
+        @apply flex
+    }
+    button.primary,input.primary{
+        @apply bg-white border px-4 py-2 rounded-lg
+    }
 }
