@@ -34,7 +34,7 @@ const optionsDateLocal = {
     />
     <div class="flex-col gap-2">
       <p class="text-xl leading-[110&] line-clamp-2">{{ content.title }}</p>
-      <p class="text-gray-500 line-clamp-2">{{ content.description }}</p>
+      <p class="text-gray-500 line-clamp-2" v-html=" content.description"></p>
     </div>
     <footer class="flex justify-between">
       <p>{{ content.date?.toLocaleDateString("ru-RU", optionsDateLocal) }}</p>

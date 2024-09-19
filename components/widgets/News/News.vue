@@ -2,6 +2,8 @@
 import DatePickerRange from "~/components/UI/DatePickerRange.vue";
 import Card from "./UI/Card.vue";
 import Pagination from "~/components/UI/Pagination.vue";
+import { NewsApi } from "~/api/news";
+import { NewsService } from "~/services/news";
 const dateFilter = ref();
 const currentPagePagination = ref(1);
 const contentPage = ref();
@@ -17,26 +19,7 @@ function transformDateFilter(data: any[], date: { start: Date; end: Date }) {
     (el) => el.created < date.end.getTime() && el.created > date.start.getTime()
   );
 }
-async function getNews() {
-  contentPage.value = await useFetch("/api/news");
-  if (contentPage.value.error) {
-    console.error(contentPage.value.error.value);
-    return;
-  }
-  console.log(contentPage.value);
-
-  contentPage.value.data.items = contentPage.value.data.items.map(
-    (news: any) => ({
-      ...news,
-      date: new Date(news.created),
-      img:
-        news.enclosures[0] && news.enclosures[0].url
-          ? news.enclosures[0].url
-          : null,
-    })
-  );
-}
-getNews();
+contentPage.value = await NewsService.getAllNewsForMainPage()
 
 function likeWords(data: any[], word: string) {
   return data.filter((el) => el.title.includes(word));
