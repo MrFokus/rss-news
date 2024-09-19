@@ -13,9 +13,12 @@ import NewsIcon from "@/assets/img/newspaper.svg?component"
                 </NuxtLink>
             </div>
         </header>
-        <main class="w-full max-w-[1340px] mx-auto px-6 py-3">
+        <main class="w-full flex-1 max-w-[1340px] mx-auto px-6 py-3">
             <slot/>
         </main>
+        <footer class="w-full border border-b-2 px-6 py-3 bg-white">
+            <p>Сайт создан для HiSmith</p>
+        </footer>
     </div>
 </template>
 

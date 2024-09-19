@@ -2,7 +2,6 @@
 import DatePickerRange from "~/components/UI/DatePickerRange.vue";
 import Card from "./UI/Card.vue";
 import Pagination from "~/components/UI/Pagination.vue";
-import { NewsApi } from "~/api/news";
 import { NewsService } from "~/services/news";
 const dateFilter = ref();
 const currentPagePagination = ref(1);

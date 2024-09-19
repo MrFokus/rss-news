@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import {optionsDateLocal} from "@/utils/date"
 const props = defineProps<{
   content: {
     id: string;
@@ -9,13 +10,7 @@ const props = defineProps<{
     date?: Date;
   };
 }>();
-const optionsDateLocal = {
-  hour: "numeric",
-  minute: "numeric",
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-};
+
 </script>
 
 <template>
