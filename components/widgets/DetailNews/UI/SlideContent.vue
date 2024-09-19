@@ -9,8 +9,8 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div>
-    <img :src="content.url" alt="" />
+  <div class="w-full h-full">
+    <img class="w-full h-full object-cover" :src="content.url" alt="" />
     <!-- <video v-else-if="content.type.includes('video')" :src="content.url" > -->
       <!-- <source :src="content.url" type="video/mp4" />
       <source :src="content.url" type="video/webm" />

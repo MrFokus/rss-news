@@ -19,15 +19,21 @@ console.log(news);
         }}</time
       >
     </div>
-    <swiper-container class="w-full">
+    <swiper-container
+      :slides-per-view="1.5"
+      :space-between="50"
+      class="w-full"
+    >
       <swiper-slide v-for="gallery in news.enclosures"
         ><SlideContent :content="gallery" />
       </swiper-slide>
     </swiper-container>
     <section class="flex-col gap-8">
-      <p>{{ news.description }}</p>
+      <p class="text-xl">{{ news.description }}</p>
       <div>
-        <NuxtLink class="text-indigo-600 underline" :to="news.link">Ссылка на новость РБК</NuxtLink>
+        <NuxtLink class="text-indigo-600 underline" :to="news.link"
+          >Ссылка на новость РБК</NuxtLink
+        >
       </div>
     </section>
   </div>
