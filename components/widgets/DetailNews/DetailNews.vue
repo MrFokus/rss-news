@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { NewsService } from "~/services/news";
 import SlideContent from "./UI/SlideContent.vue";
+import NextIcon from "@/assets/img/next.svg?component";
 
 const route = useRoute();
 console.log(route.params.id);
 const news = await NewsService.getDetailNews(route.params.id as string);
 console.log(news);
+const swiperRef = ref();
+const swiperInstance = ref();
+// onMounted(()=>{
+//     swiperInstance.value = new Swiper(swiperRef.value
+// })
 </script>
 
 <template>
@@ -19,15 +25,24 @@ console.log(news);
         }}</time
       >
     </div>
-    <swiper-container
-      :slides-per-view="1.5"
-      :space-between="50"
-      class="w-full"
-    >
-      <swiper-slide v-for="gallery in news.enclosures"
-        ><SlideContent :content="gallery" />
-      </swiper-slide>
-    </swiper-container>
+    <div class="relative w-full">
+      <swiper-container
+        ref="swiperRef"
+        :slides-per-view="1.5"
+        :space-between="50"
+        class="w-full"
+      >
+        <swiper-slide v-for="gallery in news.enclosures"
+          ><SlideContent :content="gallery" />
+        </swiper-slide>
+      </swiper-container>
+      <button class="action-swiper right-3" @click="swiperRef.swiper.slideNext()">
+        <NextIcon class="w-6 *:fill-indigo-800"></NextIcon>
+      </button>
+      <button class="action-swiper left-3" @click="swiperRef.swiper.slidePrev()">
+        <NextIcon class="w-6 *:fill-indigo-800 rotate-180"></NextIcon>
+      </button>
+    </div>
     <section class="flex-col gap-8">
       <p class="text-xl">{{ news.description }}</p>
       <div>
@@ -39,4 +54,8 @@ console.log(news);
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.action-swiper{
+    @apply absolute h-fit bottom-0 top-0 z-10 my-auto bg-white rounded-md w-8 aspect-square flex items-center justify-center border
+}
+</style>
