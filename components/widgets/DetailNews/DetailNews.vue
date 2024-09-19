@@ -2,16 +2,10 @@
 import { NewsService } from "~/services/news";
 import SlideContent from "./UI/SlideContent.vue";
 import NextIcon from "@/assets/img/next.svg?component";
-
 const route = useRoute();
-console.log(route.params.id);
 const news = await NewsService.getDetailNews(route.params.id as string);
-console.log(news);
 const swiperRef = ref();
-const swiperInstance = ref();
-// onMounted(()=>{
-//     swiperInstance.value = new Swiper(swiperRef.value
-// })
+
 </script>
 
 <template>
@@ -31,6 +25,7 @@ const swiperInstance = ref();
         :slides-per-view="1.5"
         :space-between="50"
         class="w-full"
+        v-viewer
       >
         <swiper-slide v-for="gallery in news.enclosures"
           ><SlideContent :content="gallery" />

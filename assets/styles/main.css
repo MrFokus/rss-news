@@ -14,7 +14,7 @@ html,body,#__nuxt{
     body{
         @apply bg-indigo-50
     }
-    div:not(.vc-container,.vc-container *, .viewer-container *),header,main,footer,section{
+    div:not(.vc-container,.vc-container *,.viewer-container, .viewer-container *),header,main,footer,section{
         @apply flex
     }
     button.primary,input.primary{

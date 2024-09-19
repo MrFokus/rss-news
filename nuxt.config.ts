@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', 'nuxt-svgo','@vueuse/nuxt'],
   css:['~/assets/styles/main.css'],
   ssr:false,
-  plugins:['@/plugins/calendar.ts','@/plugins/swiper.ts'],
+  plugins:['@/plugins/calendar.ts','@/plugins/swiper.ts','@/plugins/viewer.ts'],
   svgo: {
     defaultImport: "url",
   },
