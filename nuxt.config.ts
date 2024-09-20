@@ -10,4 +10,7 @@ export default defineNuxtConfig({
   svgo: {
     defaultImport: "url",
   },
+  app:{
+    baseURL:'/rss-news/'
+  }
 })
